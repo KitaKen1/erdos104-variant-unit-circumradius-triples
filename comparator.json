@@ -1,0 +1,13 @@
+{
+  "challenge_module": "FClikelean.«104variantMaximizer»",
+  "solution_module": "«104variantMaximizer»",
+  "theorem_names": [
+    "Erdos104.erdos_104.variants.unitCircumradiusTriples",
+    "Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "external_kernels": {
+    "nanoda": ["nanoda_bin"]
+  }
+}

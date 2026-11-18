@@ -1,0 +1,7 @@
+ℹ [2514/2517] Built leanWithComparator.Solution (6.6s)
+info: leanWithComparator/Solution.lean:66:0: 'Erdos104.erdos_104.variants.unitCircumradiusTriples' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2516/2517] Built «104variantMaximizer» (2.0s)
+info: lean/104variantMaximizer.lean:37:0: 'Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (2517 jobs).

@@ -1,0 +1,31 @@
+name = "erdos104-unit-triples"
+version = "0.1.0"
+defaultTargets = ["FClikelean", "leanWithComparator", "Erdos104Maximizer"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4"
+rev = "56a005855ea17e0b0958f73ec801ae140b0a1679"
+
+[[lean_lib]]
+name = "FormalConjecturesUtil"
+srcDir = "vendor/formal-conjectures"
+globs = ["FormalConjecturesUtil.Attributes.+"]
+
+[[lean_lib]]
+name = "Erdos104UnitTriples"
+srcDir = "lean"
+
+[[lean_lib]]
+name = "FClikelean"
+globs = ["FClikelean.+"]
+
+[[lean_lib]]
+name = "leanWithComparator"
+globs = ["leanWithComparator.+"]
+
+[[lean_lib]]
+name = "Erdos104Maximizer"
+srcDir = "lean"
+roots = ["«104variantMaximizer»"]

@@ -1,0 +1,75 @@
+Erdős unit-circumradius triples verification · 2026-11-18 23:17 JST
+macOS arm64 · Lean v4.35.0 · manifest-pinned Mathlib cache
+Both exports were generated from the inputs recorded below.
+
+$ python3 leanWithComparator/sync_definitions.py --check
+
+$ lake --wfail build
+ℹ [2514/2517] Built leanWithComparator.Solution (6.6s)
+info: leanWithComparator/Solution.lean:66:0: 'Erdos104.erdos_104.variants.unitCircumradiusTriples' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2516/2517] Built «104variantMaximizer» (2.0s)
+info: lean/104variantMaximizer.lean:37:0: 'Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (2517 jobs).
+
+$ lake env lean -DwarningAsError=true verification/Check.lean
+erdos_104.variants.unitCircumradiusTriples : ∀ (n : ℕ),
+  2 ≤ n →
+    sSup
+        {k |
+          ∃ P, P.card = n ∧ ¬LiesOnUnitCircle P ∧ (Finset.filter LiesOnUnitCircle (Finset.powersetCard 3 P)).card = k} =
+      if n ≤ 3 then 0 else (n - 1).choose 3 + (n - 2) + if (n - 1) % 3 = 0 then 1 else 0
+erdos_104.variants.unitCircumradiusTriplesMaximizer : ∀ (P : Finset (EuclideanSpace ℝ (Fin 2))),
+  4 ≤ P.card →
+    ¬LiesOnUnitCircle P →
+      (Finset.filter LiesOnUnitCircle (Finset.powersetCard 3 P)).card =
+          sSup
+            {k |
+              ∃ Q,
+                Q.card = P.card ∧
+                  ¬LiesOnUnitCircle Q ∧ (Finset.filter LiesOnUnitCircle (Finset.powersetCard 3 Q)).card = k} →
+        ∃ s, s.radius = 1 ∧ {p ∈ P | p ∈ s}.card = P.card - 1
+'Erdos104.erdos_104.variants.unitCircumradiusTriples' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+$ lake env lake comparator --inadvisably-no-sandbox
+WARNING: Sandbox disabled, this run is not trustworthy.
+Resolving dependencies
+Building FClikelean.«104variantMaximizer»
+Build completed successfully (2507 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Erdos104.erdos_104.variants.unitCircumradiusTriples, Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from FClikelean.«104variantMaximizer»
+Building «104variantMaximizer»
+ℹ [2509/2510] Replayed leanWithComparator.Solution
+info: leanWithComparator/Solution.lean:66:0: 'Erdos104.erdos_104.variants.unitCircumradiusTriples' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [2510/2510] Replayed «104variantMaximizer»
+info: lean/104variantMaximizer.lean:37:0: 'Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+Build completed successfully (2510 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Erdos104.erdos_104.variants.unitCircumradiusTriples, Erdos104.erdos_104.variants.unitCircumradiusTriplesMaximizer, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from «104variantMaximizer»
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!
+
+SHA-256 of the verification inputs
+402437fe291f5acad31e89d6dfde5ba552e68bd7a62008f04775ae0695dff7b8  .github/workflows/comparator.yml
+cc289ce6b9c41e7744fd6563abbe88f7dab0bbdc37b3fd841fbce591e33c40f0  FClikelean/104variant.lean
+50e1820f7d0eb28eca77c1a78fcaae0732e77899a39e9c429c9b5e042949d8bd  FClikelean/104variantMaximizer.lean
+7ff4d3f7ed3f35f82a92f2090315f23139353f2b12729ab3b7eb17397bbe2b73  comparator.json
+c98e626f4b4c192b485e0fd937ffb438e5308a8035559c58a229d238b08b6303  lake-manifest.json
+cc144d8e6bb2f134749a9f5db9d9e852c7d32ebf393f06c82671bbc8d5f9afa4  lakefile.toml
+e58ce9f3f67cbe752989e88a3e6e8c1af8532cea3c16d8f0cd9c294381970549  lean/104variantMaximizer.lean
+de616f814b998fd0b02ee04a6ed65b682aeccac8b6098723e620ffc02924d620  lean/Erdos104UnitTriples.lean
+ca5f1f601d34c49079e38d7e7041eb0f2a9c227fbc1df0f404820069a052330c  lean-toolchain
+5eafa9c97cbb5b49927cc02aaa7944f5acde8eb2a5dfbc39703f928de00c1f39  leanWithComparator/Definitions.lean
+b22b3c2d7dae916e5e69e9b9bc055b6e314de71652bc6e3494839b171bf209e4  leanWithComparator/Solution.lean
+d2f43131b495dadfb0d4a25ee68e92768d65335c68f9f7020df913adea0c14be  leanWithComparator/sync_definitions.py
+e5a6b4b0cd42e1ad11e84b75bd89f78a9797a98e5b23d8b956f13190b9078d96  vendor/formal-conjectures/FormalConjecturesUtil/Attributes/AMS.lean
+fe9a644de777d613c47ee2016ba381ad96b2a84cab011a79df00eb86682c4c33  vendor/formal-conjectures/FormalConjecturesUtil/Attributes/Basic.lean
+f59152267560b9bc90e2476d1783eebfebdc41c0a13d5967f88d49d84f5dd719  verification/Check.lean
+1682daead0e9a405a99ef532d1786b09c4e376c8da61d016e8c56eafb39e267b  verification/verify.py
